@@ -6,7 +6,7 @@
 #    By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/03 17:55:21 by llucente          #+#    #+#              #
-#    Updated: 2021/08/03 18:39:06 by llucente         ###   ########.fr        #
+#    Updated: 2021/08/06 16:39:40 by llucente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = megaphone
 
 CC = clang++
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -std=c++98 -pedantic
 
 SRCS = megaphone.cpp
 

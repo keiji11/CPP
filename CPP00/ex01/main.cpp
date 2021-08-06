@@ -6,13 +6,14 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:27:08 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/04 17:47:12 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/06 19:41:57 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+#include "Contact.hpp"
 
-int	command(std::string input)
+int	command(t_str input)
 {
 	if (input == "ADD")
 		return 1;
@@ -27,7 +28,10 @@ int	command(std::string input)
 int main(void)
 {
 	Phonebook 	pb;
-	std::string str;
+	t_str		str;
+	Contact		c[8];
+	int 		i = 0;
+	int 		j = 0;
 	
 	std::cout << "Please insert your choice: " << std::endl;
 	std::cout << "\"ADD\" to adding new contact " << std::endl;
@@ -35,21 +39,35 @@ int main(void)
 	std::cout << "\"EXIT\" to exit. " << std::endl;
 	while (1)
 	{
-		std::cout << "You have choose the command: ";
-		std::cin >> str;
-		switch (command(str))
+		if (i < 8)
 		{
-			case 1:
-				pb.addingCon();
-			case 2:
-				pb.searchingCon();
-			case 3:
-				std::cout << "You're exiting, Goodbye.";
-				return (0);
-			default:
-				std::cout << "Invalid choice, you HAVE to insert only \"ADD\","
-						<< "\"SEARCH\" and \"EXIT\" commands" << std::endl;
-				system("clear");
+			std::cout << "You have choose the command: ";
+			std::getline(std::cin, str);
+			switch (command(str))
+			{
+				case 1:
+					pb.addingCon(c[i++]);
+					continue ;
+				case 2:
+					printf("ciao");
+					break ;
+				case 3:
+					std::cout << "You're exiting, Goodbye.";
+					return (0);
+				default:
+					system("clear");
+					std::cout << "Invalid choice, you HAVE to insert only \"ADD\","
+							<< "\"SEARCH\" and \"EXIT\" commands" << std::endl;
+					exit(0);
+			}
+		}
+		else
+		{
+			std::cout << "There are already 8 contacts in phonebook!" << std::endl;
+			std::cout << c[i].getFirstName() << std::endl;
+			if (i == 8)
+				i = 0;
+			continue ;
 		}
 	}
 	return 0;

@@ -6,7 +6,7 @@
 #    By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/03 17:55:21 by llucente          #+#    #+#              #
-#    Updated: 2021/08/04 11:51:49 by llucente         ###   ########.fr        #
+#    Updated: 2021/08/06 18:11:37 by llucente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = phonebook
 
 CC = clang++
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -std=c++98 -pedantic
 
 SRCS = *.cpp
 

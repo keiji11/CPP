@@ -6,12 +6,11 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:01:46 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/04 16:18:12 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/06 19:28:48 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#pragma once
 
 #include "Contact.hpp"
 
@@ -21,10 +20,8 @@ class Phonebook
 		Contact contact[8];
 		
 	public:
-		Phonebook();
-		~Phonebook();
-		void addingCon();
-		void searchingCon();
+		Phonebook(){}
+		~Phonebook(){}
+		void addingCon(Contact &c);
+		// void searchingCon();
 };
-
-#endif
