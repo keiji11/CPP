@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:01:46 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/06 19:28:48 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/07 17:48:29 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ class Phonebook
 		Phonebook(){}
 		~Phonebook(){}
 		void addingCon(Contact &c);
-		// void searchingCon();
+		void searchingCon(Contact c[]);
+		void control(t_str &str);
 };

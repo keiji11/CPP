@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:27:08 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/06 19:41:57 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/07 16:54:59 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main(void)
 	t_str		str;
 	Contact		c[8];
 	int 		i = 0;
-	int 		j = 0;
 	
 	std::cout << "Please insert your choice: " << std::endl;
 	std::cout << "\"ADD\" to adding new contact " << std::endl;
@@ -49,13 +48,13 @@ int main(void)
 					pb.addingCon(c[i++]);
 					continue ;
 				case 2:
-					printf("ciao");
-					break ;
+					pb.searchingCon(c);
+					continue ;
 				case 3:
 					std::cout << "You're exiting, Goodbye.";
 					return (0);
 				default:
-					system("clear");
+					// system("clear");
 					std::cout << "Invalid choice, you HAVE to insert only \"ADD\","
 							<< "\"SEARCH\" and \"EXIT\" commands" << std::endl;
 					exit(0);
