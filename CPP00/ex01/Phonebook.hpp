@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:01:46 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/07 17:48:29 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/12 18:34:17 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Phonebook
 	public:
 		Phonebook(){}
 		~Phonebook(){}
-		void addingCon(Contact &c);
-		void searchingCon(Contact c[]);
+		void addingCon(Contact &c, int i);
+		void searchingCon(Contact c[], int t);
 		void control(t_str &str);
 };

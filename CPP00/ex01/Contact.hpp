@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:13:36 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/07 16:40:19 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/12 13:03:49 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef std::string t_str;
 
 class Contact
 {
+	int			index;
 	std::string	firstName;
 	std::string	lastName;
 	std::string	nickName;
@@ -30,9 +31,10 @@ class Contact
 		
 	public:
 		Contact(){}
-		Contact(std::string aFirstName, std::string aLastName, std::string aNickName, 
+		Contact(int aIndex, std::string aFirstName, std::string aLastName, std::string aNickName, 
 			std::string aPhoneNumber, std::string aDarkestSecret)
 		{
+			index = aIndex;
 			firstName = aFirstName;
 			lastName = aLastName;
 			nickName = aNickName;
@@ -40,6 +42,8 @@ class Contact
 			darkestSecret = aDarkestSecret;
 		}
 		~Contact(){}
+		void setIndex(int index);
+		int getIndex(void);
 		void setFirstName(std::string firstName);
 		std::string getFirstName(void);
 		void setLastName(std::string lastName);
@@ -51,5 +55,5 @@ class Contact
 		void setDarkestSecret(std::string darkestSecret);
 		std::string getDarkestSecret(void);
 		bool isEmpty(t_str &str);
-		void printData(void);
+		void printData();
 };

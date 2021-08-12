@@ -6,13 +6,23 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:10:28 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/07 17:38:09 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/12 16:55:24 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 typedef std::string t_str;
+
+void	Contact::setIndex(int index)
+{
+	this->index = index;
+}
+
+int	Contact::getIndex()
+{
+	return this->index;
+}
 
 void	Contact::setFirstName(std::string fn)
 {
@@ -87,22 +97,20 @@ std::string truncate(std::string str, size_t width, bool show_ellipsis=true)
     return str;
 }
 
-void	Contact::printData(void)
+void	Contact::printData()
 {
-	std::cout << " __________________________________________________________" << std::endl;
+	std::cout << " _______________________________________________________________________________" << std::endl;
+	std::cout << "|" << std::setw(20) << std::right << "index";
 	std::cout << "|" << std::setw(20) << std::right << "first name";
 	std::cout << "|" << std::setw(20) << std::right << "last name";
-	std::cout << "|" << std::setw(20) << std::right << "nick name";
-	std::cout << "|" << std::setw(20) << std::right << "phone";
-	std::cout << "|" << std::setw(20) << std::right << "darkest secret" << "|" << std::endl;
-	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
+	std::cout << "|" << std::setw(20) << std::right << "nick name" << "|" << std::endl;
+	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
 	// std::cout << "_______________________________________________________" << std::endl;
-	std::cout << "|" << std::setw(20) << std::right << truncate(getFirstName(), 10);
-	std::cout << "|" << std::setw(20) << std::right << truncate(getLastName(), 10);
-	std::cout << "|" << std::setw(20) << std::right << truncate(getNickName(), 10);
-	std::cout << "|" << std::setw(20) << std::right << truncate(getPhoneNumber(), 10);
-	std::cout << "|" << std::setw(20) << std::right << truncate(getDarkestSecret(), 10) << "|" << std::endl;
-	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
+	std::cout << "|" << std::setw(20) << std::right << getIndex();
+	std::cout << "|" << std::setw(20) << std::right << truncate(getFirstName(), 9);
+	std::cout << "|" << std::setw(20) << std::right << truncate(getLastName(), 9);
+	std::cout << "|" << std::setw(20) << std::right << truncate(getNickName(), 9) << "|" << std::endl;
+	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
 	// std::cout << std::setw(20) << std::left << "First name" << this->firstName << std::endl;
 	// std::cout << std::setw(20) << std::left << "Last name" << this->lastName << std::endl;
 	// std::cout << std::setw(20) << std::left << "Nickname" << this->nickName << std::endl;

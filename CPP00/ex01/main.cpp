@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:27:08 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/07 16:54:59 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/12 18:33:41 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(void)
 	t_str		str;
 	Contact		c[8];
 	int 		i = 0;
+	int 		j = 0;
 	
 	std::cout << "Please insert your choice: " << std::endl;
 	std::cout << "\"ADD\" to adding new contact " << std::endl;
@@ -40,15 +41,15 @@ int main(void)
 	{
 		if (i < 8)
 		{
-			std::cout << "You have choose the command: ";
+			std::cout << "\n\nYou have choose the command: ";
 			std::getline(std::cin, str);
 			switch (command(str))
 			{
 				case 1:
-					pb.addingCon(c[i++]);
+					pb.addingCon(c[i++], j++);
 					continue ;
 				case 2:
-					pb.searchingCon(c);
+					pb.searchingCon(c, i);
 					continue ;
 				case 3:
 					std::cout << "You're exiting, Goodbye.";
@@ -57,7 +58,7 @@ int main(void)
 					// system("clear");
 					std::cout << "Invalid choice, you HAVE to insert only \"ADD\","
 							<< "\"SEARCH\" and \"EXIT\" commands" << std::endl;
-					exit(0);
+					continue ;
 			}
 		}
 		else
@@ -65,7 +66,10 @@ int main(void)
 			std::cout << "There are already 8 contacts in phonebook!" << std::endl;
 			std::cout << c[i].getFirstName() << std::endl;
 			if (i == 8)
+			{
 				i = 0;
+				j = 0;
+			}
 			continue ;
 		}
 	}
