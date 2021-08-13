@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:27:08 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/12 18:33:41 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/13 12:48:47 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(void)
 {
 	Phonebook 	pb;
 	t_str		str;
-	Contact		c[8];
+	Contact		c[MAX_CONTACTS];
 	int 		i = 0;
 	int 		j = 0;
 	
@@ -39,7 +39,7 @@ int main(void)
 	std::cout << "\"EXIT\" to exit. " << std::endl;
 	while (1)
 	{
-		if (i < 8)
+		if (i < MAX_CONTACTS)
 		{
 			std::cout << "\n\nYou have choose the command: ";
 			std::getline(std::cin, str);
@@ -49,23 +49,22 @@ int main(void)
 					pb.addingCon(c[i++], j++);
 					continue ;
 				case 2:
-					pb.searchingCon(c, i);
+					pb.searchingCon(c);
 					continue ;
 				case 3:
 					std::cout << "You're exiting, Goodbye.";
 					return (0);
 				default:
-					// system("clear");
 					std::cout << "Invalid choice, you HAVE to insert only \"ADD\","
 							<< "\"SEARCH\" and \"EXIT\" commands" << std::endl;
 					continue ;
 			}
 		}
-		else
+		if (i >= MAX_CONTACTS)
 		{
-			std::cout << "There are already 8 contacts in phonebook!" << std::endl;
-			std::cout << c[i].getFirstName() << std::endl;
-			if (i == 8)
+			std::cout << "\nWARNING! -> Phonebook is full now: there are already " << MAX_CONTACTS << " contacts in phonebook!" << std::endl;
+			std::cout << "Do you want overwrite contact with ADD? " << std::endl;
+			if (i == MAX_CONTACTS)
 			{
 				i = 0;
 				j = 0;

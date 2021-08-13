@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:47:28 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/12 18:38:16 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/13 12:48:32 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,21 @@ void	Phonebook::addingCon(Contact &c, int i)
 	c.setDarkestSecret(str);
 }
 
-void Phonebook::searchingCon(Contact *c, int t)
+void Phonebook::searchingCon(Contact *c)
 {
 	int i;
 
 	std::cout << "PHONEBOOK SEARCHING..." << std::endl;
-	for (int j = 0; j < t; j++)
+	for (int j = 0; j < MAX_CONTACTS; j++)
 	{
-		c[j].printData();
+		if (!c[j].getFirstName().empty())
+			c[j].printData();
 	}
 	while (1)
 	{
 		std::cout << "Please insert index of contact (CTRL+C to exit): " << std::endl;
 		std::cin >> i;
-		if (i >= 0 && i < t)
+		if (i >= 0 && i < MAX_CONTACTS)
 		{
 			std::cout << "\nFirst Name : " + c[i].getFirstName() << std::endl;
 			std::cout << "Last Name : " + c[i].getLastName() << std::endl;
