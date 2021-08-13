@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:47:28 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/13 12:48:32 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:54:33 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	Phonebook::control(t_str &str)
 	{
 		while(str.empty())
 		{
-			std::cout << "Insert something, it's MANDATORY!: ";
+			std::cout << RED"Insert something, it's MANDATORY!: "DEF;
 			std::getline(std::cin, str);
 		}
 	}
@@ -28,7 +28,7 @@ void	Phonebook::addingCon(Contact &c, int i)
 {
 	t_str		str;
 
-	std::cout << "PHONEBOOK ADDING..." << std::endl;
+	std::cout << GRN"PHONEBOOK ADDING..."DEF << std::endl;
 	c.setIndex(i);
 	std::cout << std::setw(20) << std::endl << "\nPlease insert firstname: ";
 	std::getline(std::cin, str);
@@ -49,34 +49,41 @@ void	Phonebook::addingCon(Contact &c, int i)
 	std::cout << std::setw(50) << "\nPlease insert darkest secret: ";
 	std::getline(std::cin, str);
 	c.setDarkestSecret(str);
+	
+	std::cout << GRN"CONTACT n " << c.getIndex() + 1 << " SUCCESFULLY ADDED!!!"DEF << std::endl;
 }
 
 void Phonebook::searchingCon(Contact *c)
 {
-	int i;
+	int 	i;
 
-	std::cout << "PHONEBOOK SEARCHING..." << std::endl;
-	for (int j = 0; j < MAX_CONTACTS; j++)
+	std::cout << YEL"PHONEBOOK SEARCHING..."DEF << std::endl;
+	bool initCond = c[0].getFirstName().empty();
+	if (initCond)
+		std::cout << RED"\nThere is no contacts in phonebook!!!\n"DEF << std::endl;
+	else
+		c[0].printTitle();
+	for (size_t j = 0; j < MAX_CONTACTS; j++)
 	{
 		if (!c[j].getFirstName().empty())
 			c[j].printData();
 	}
-	while (1)
+	while (!initCond)
 	{
-		std::cout << "Please insert index of contact (CTRL+C to exit): " << std::endl;
+		std::cout << CYN"Please insert index of contact ("RED"CTRL+C to exit"DEF""CYN"): "DEF << std::endl;
 		std::cin >> i;
 		if (i >= 0 && i < MAX_CONTACTS)
 		{
-			std::cout << "\nFirst Name : " + c[i].getFirstName() << std::endl;
-			std::cout << "Last Name : " + c[i].getLastName() << std::endl;
-			std::cout << "Nick Name : " + c[i].getNickName() << std::endl;
-			std::cout << "Phone Number : " + c[i].getPhoneNumber() << std::endl;
-			std::cout << "Darkest Secret : " + c[i].getDarkestSecret() << std::endl;
+			std::cout << CYN"\nFirst Name : "DEF + c[i].getFirstName() << std::endl;
+			std::cout << CYN"Last Name : "DEF + c[i].getLastName() << std::endl;
+			std::cout << CYN"Nick Name : "DEF + c[i].getNickName() << std::endl;
+			std::cout << CYN"Phone Number : "DEF + c[i].getPhoneNumber() << std::endl;
+			std::cout << CYN"Darkest Secret : "DEF + c[i].getDarkestSecret() << std::endl;
 			continue ;
 		}
 		else
 		{
-			std::cout << "Incorrect index insertion" << std::endl;
+			std::cout << RED"Incorrect index insertion"DEF << std::endl;
 			continue ;
 		}
 	}

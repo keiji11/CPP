@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:13:36 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/12 13:03:49 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:24:57 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ class Contact
 		std::string getDarkestSecret(void);
 		bool isEmpty(t_str &str);
 		void printData();
+		void printTitle();
 };

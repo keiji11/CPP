@@ -6,7 +6,7 @@
 /*   By: llucente <llucente@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:10:28 by llucente          #+#    #+#             */
-/*   Updated: 2021/08/13 12:49:17 by llucente         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:51:38 by llucente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ std::string truncate(std::string str, size_t width, bool show_ellipsis=true)
     return str;
 }
 
-void	Contact::printData()
+void	Contact::printTitle()
 {
 	std::cout << " ___________________________________________________________________________________" << std::endl;
 	std::cout << "|" << std::setw(20) << std::right << "index";
@@ -105,15 +105,13 @@ void	Contact::printData()
 	std::cout << "|" << std::setw(20) << std::right << "last name";
 	std::cout << "|" << std::setw(20) << std::right << "nick name" << "|" << std::endl;
 	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
-	// std::cout << "_______________________________________________________" << std::endl;
+}
+void	Contact::printData()
+{
+	std::cout << " ___________________________________________________________________________________" << std::endl;
 	std::cout << "|" << std::setw(20) << std::right << getIndex();
 	std::cout << "|" << std::setw(20) << std::right << truncate(getFirstName(), 9);
 	std::cout << "|" << std::setw(20) << std::right << truncate(getLastName(), 9);
 	std::cout << "|" << std::setw(20) << std::right << truncate(getNickName(), 9) << "|" << std::endl;
 	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
-	// std::cout << std::setw(20) << std::left << "First name" << this->firstName << std::endl;
-	// std::cout << std::setw(20) << std::left << "Last name" << this->lastName << std::endl;
-	// std::cout << std::setw(20) << std::left << "Nickname" << this->nickName << std::endl;
-	// std::cout << std::setw(20) << std::left << "Phone" << this->phoneNumber << std::endl;
-	// std::cout << std::setw(20) << std::left << "Darkest secret" << this->darkestSecret << std::endl;
 }
